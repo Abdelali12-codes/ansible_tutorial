@@ -1,0 +1,22 @@
+---
+# tasks file for first_role
+- debug:
+    msg: my name is {{full_name}}
+
+- debug:
+   msg: dirname is {{dir_name}}
+- name: generate ssh key for kali user
+  user:
+    name: kali
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: ~/Documents/ssh/id_rsa
+    force: yes
+  register: new_user
+
+- debug:
+     msg: "{{new_user.ssh_public_key}}"
+
+
+
+

@@ -1,0 +1,31 @@
+- name: create user on aws ubuntu
+  hosts: aws_server
+  become: yes
+  tasks:
+   
+   - name: create user
+     user: 
+       name: abdelali
+       comment: new user
+       uid: 1090
+       shell: /bin/bash
+       create_home: yes
+       home: /home/abdelali
+   - name: generate ssh key for created user
+     user: 
+       name: abdelali
+       generate_ssh_key: yes
+       ssh_key_bits: 2048
+       ssh_key_type: rsa
+       ssh_key_file: /home/abdelali/.ssh/id_rsa      
+  # - name: change user directory
+  #   user:
+  #     name: abdelali
+  #     move_home: yes
+  #     home: /home/ali
+     
+ #  - name: remove user
+ #    user: 
+ #       name: abdelali
+ #       remove: yes
+ #       state: absent

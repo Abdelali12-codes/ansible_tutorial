@@ -1,0 +1,6 @@
+ansible_port: 22
+ansible_user: kali
+ansible_python_interpreter: /usr/bin/python3
+#ansible_password: password
+ansible_connection: ssh
+#ansible_become_pass: 

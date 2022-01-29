@@ -1,0 +1,9 @@
+- name: copy files
+  hosts: aws_server
+  tasks:
+    - name: file
+      copy:
+        src: /home/ubuntu/file.txt
+        dest: /home/ubuntu/folder/
+        remote_src: yes
+        mode: u+rwx,g-rwx,o-rwx
